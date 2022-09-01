@@ -24,9 +24,9 @@ s1_pc_list = [0]
 s2_pc_list = [0]
 s3_pc_list = [0]
 s4_pc_list = [0]
-# GLOBALS OF THE GAME
+
 temp = []
-# min/max payoffs from the game
+# min/max payoffs of the game
 pmin_c = 0
 pmin_d = 1
 pmax_c = 3
@@ -55,16 +55,13 @@ def float_range(start, stop, step):
     yield float(start)
     start += decimal.Decimal(step)
 
-# Noramalization in range [0,1]
-# used only for emotional potential
 def normalize_list(list):
     array = np.array(list)
     k = array - min(array)
     l = max(array) - min(array)
     array = k/l
     return array.tolist()
-
-# Normalization 
+ 
 def normalize_list2(list):
     list = np.array(list)
     list_norm = list / np.linalg.norm(list)
@@ -413,9 +410,7 @@ class Pavlov2(Pavlov1):
         # all emotional intensities [idist, igratitude, iapprec, ijoy, ireproach, ianger]
         self.discrete_emotional_intensities = [0, 0 ,0 ,0 ,0, 0]
         self.emotional_potential_to_cooperate = 0
-        self.emotional_potential_to_defect = 0
-        self.emotional_bias_about_coplayer_cooperation = 0
-        self.emotional_bias_about_coplayer_defection = 0
+        self.emotional_potential_to_defect = 0              
         self.delta = 0
         # INITIALIZED EMOTIONAL INTESITIES
         self.ireproach = 0
@@ -750,7 +745,6 @@ class Pavlov2(Pavlov1):
 
     # reinitialize worth
     def new_match_against(self, opponent):
-        self.emotional_bias_about_coplayer_cooperation = 0
-        self.emotional_bias_about_coplayer_defection = 0
+        
         super().new_match_against(opponent)
 

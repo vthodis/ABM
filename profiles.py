@@ -1,7 +1,7 @@
 from data import TitForTat,ReverseTFT,Random,Cooperative,NonCooperative,Neutral,LearningPavlov,Population
 from copy import deepcopy
 
-# all the available strategies for the simualtion
+# all the available strategies for the simulation
 all_strategies = {
     'Tit for Tat': TitForTat(),
     'ReverseTFT': ReverseTFT(),    
